@@ -103,7 +103,7 @@ bool SerialDetect::enumSerialPort(CString& comport)
 	{
 		dwSizeValueName = m_nameLen;
 		dwSizeofPortName = m_nameLen;
-		status = RegEnumValue(hKey, dwIndex++, (LPWSTR)szValueName, &dwSizeValueName, NULL, &Type,
+		status = RegEnumValue(hKey, dwIndex++, (LPSTR)szValueName, &dwSizeValueName, NULL, &Type,
 			szPortName, &dwSizeofPortName);
 
 		if ((status == ERROR_SUCCESS))

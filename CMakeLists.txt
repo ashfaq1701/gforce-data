@@ -14,7 +14,7 @@ set_target_properties(gforce
         IMPORTED_LOCATION ${GFORCE_LIBRARY_PATH}/gforce64.dll
         IMPORTED_IMPLIB ${GFORCE_LIBRARY_PATH}/gforce64.lib)
 
-add_executable(gforce_data main.cpp)
+add_executable(gforce_data src/SerialDetect.cpp src/stdafx.cpp main.cpp)
 
 target_include_directories(gforce_data PRIVATE ${GEFORCE_INCLUDES_DIRECTORY})
 target_include_directories(gforce_data PRIVATE ${SRC_DIRECTORY})
