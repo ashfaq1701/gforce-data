@@ -1,0 +1,1 @@
+file(COPY "${DLL_DIR}gforce64.dll" DESTINATION "${CMAKE_BINARY_DIR}/Debug")

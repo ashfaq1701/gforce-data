@@ -20,3 +20,18 @@ target_include_directories(gforce_data PRIVATE ${SRC_DIRECTORY})
 
 target_link_libraries(gforce_data PRIVATE gforce)
 
+configure_file(
+        "${CMAKE_CURRENT_SOURCE_DIR}/scripts/copy_dlls_script.cmake.in"
+        "${CMAKE_CURRENT_BINARY_DIR}/copy_dlls_script.cmake"
+        @ONLY
+)
+
+add_custom_target(copy_dlls
+        COMMAND ${CMAKE_COMMAND} -D DLL_DIR=${GFORCE_BIN_PATH} -P ${CMAKE_CURRENT_BINARY_DIR}/copy_dlls_script.cmake
+        COMMENT "Copying DLLs to build directory"
+        VERBATIM
+)
+
+# Add a dependency to make sure the DLLs are copied before building the main target
+add_dependencies(gforce_data copy_dlls)
+
