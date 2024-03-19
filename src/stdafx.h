@@ -40,7 +40,7 @@
 #include <stdio.h>
 #include <tchar.h>
 
-// TODO: reference additional headers your program requires here
+// TODO: reference additional inc your program requires here
 #include <Windows.h>
 
 #pragma warning( disable : 4251 )
